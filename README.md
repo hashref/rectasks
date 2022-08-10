@@ -11,7 +11,7 @@ Select the latest release `tar.gz` file by clicking the latest project release. 
 **Example:**
 
 ```sh
-cpanm https://github.com/hashref/rectasks/archive/refs/tags/v0.01.tar.gz
+cpanm https://github.com/hashref/rectasks/archive/refs/tags/v0.0.1.tar.gz
 ```
 
 Or, if you are more familiar with Perl, you can clone this repo, run `perl Makefile.PL && make && make dist`. From there install the tarball that it creates with `cpanm`.
