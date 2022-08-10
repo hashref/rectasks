@@ -25,7 +25,7 @@ $ perl Makefile.PL
 $ make
 $ make test
 $ make dist
-$ cpanm rectasks-0.01.tar.gz
+$ cpanm rectasks-0.0.1.tar.gz
 ```
 
 ## Prerequisites
