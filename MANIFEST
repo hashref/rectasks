@@ -1,0 +1,6 @@
+LICENSE
+Makefile.PL
+MANIFEST			This list of files
+rectasks-0.01.tar.gz
+script/rectasks
+t/000_required_external_exe.t

@@ -1,0 +1,28 @@
+---
+abstract: 'A script to record daily tasks to an Obsidian Daily Journal'
+author:
+  - 'David Betz <hashref@gmail.com>'
+build_requires:
+  ExtUtils::MakeMaker: '0'
+  Test::More: '0.48'
+configure_requires:
+  ExtUtils::MakeMaker: '0'
+dynamic_config: 0
+generated_by: 'ExtUtils::MakeMaker version 7.62, CPAN::Meta::Converter version 2.150010'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: '1.4'
+name: rectasks
+no_index:
+  directory:
+    - t
+    - inc
+requires:
+  Readonly: '2.05'
+  perl: '5.009001'
+resources:
+  bugtracker: https://github.com/hashref/rectasks/issues
+  repository: https://github.com/hashref/rectasks.git
+version: v0.0.1
+x_serialization_backend: 'CPAN::Meta::YAML version 0.018'

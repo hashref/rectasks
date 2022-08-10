@@ -1,0 +1,58 @@
+{
+   "abstract" : "A script to record daily tasks to an Obsidian Daily Journal",
+   "author" : [
+      "David Betz <hashref@gmail.com>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "ExtUtils::MakeMaker version 7.62, CPAN::Meta::Converter version 2.150010",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : 2
+   },
+   "name" : "rectasks",
+   "no_index" : {
+      "directory" : [
+         "t",
+         "inc"
+      ]
+   },
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "0"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "0"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Readonly" : "2.05",
+            "perl" : "5.009001"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "Test::More" : "0.48"
+         }
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/hashref/rectasks/issues"
+      },
+      "repository" : {
+         "type" : "git",
+         "url" : "https://github.com/hashref/rectasks.git",
+         "web" : "https://github.com/hashref/rectasks"
+      }
+   },
+   "version" : "v0.0.1",
+   "x_serialization_backend" : "JSON::PP version 4.06"
+}

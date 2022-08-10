@@ -1,0 +1,48 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+use 5.009_001;
+
+our $VERSION = '0.0.1';
+
+use Readonly   qw(Readonly);
+use POSIX      qw(strftime);
+use File::Copy qw(move);
+
+Readonly my $OBSIDIAN_PATH => $ARGV[0];
+if ( !$OBSIDIAN_PATH ) {
+  die "Undefined Obsidian path\n";
+}
+elsif ( !-d -r -w $OBSIDIAN_PATH ) {
+  die "The Obsidian path is either not a directory or doesn't have the required permissions.\n";
+}
+
+Readonly my $ORIGINAL_FILE => join '/' . $OBSIDIAN_PATH, ( join ".", ( strftime "%F", localtime() ), 'md' );
+Readonly my $MODIFIED_FILE => join '/' . $OBSIDIAN_PATH, ( '.' . $ORIGINAL_FILE );
+
+chdir $OBSIDIAN_PATH;
+
+my $tasks = `task today +work | cut -b 11- | sed 1,3d | sed -n -e :a -e '1,2!{P;N;D;};N;ba' | sed -e 's/^/- /'`;
+$tasks =~ s/\n$//;    # The document looks ugly having that last new line
+
+unless ($tasks) {
+  print "There is nothing to update. The file has not been modified\n";
+  exit;
+}
+
+open my $ORIGINAL_FH, "<:encoding(utf8)", $ORIGINAL_FILE || die $ORIGINAL_FILE . ': ' . $!;
+open my $MODIFIED_FH, ">:encoding(utf8)", $MODIFIED_FILE || die $MODIFIED_FILE . ': ' . $!;
+
+while ( my $line = <$ORIGINAL_FH> ) {
+  $line =~ s/{TASK_LIST}/$tasks/;
+  print $MODIFIED_FH $line;
+}
+
+close $ORIGINAL_FH;
+close $MODIFIED_FH;
+
+if ( move( $MODIFIED_FILE, $ORIGINAL_FILE ) ) {
+  unlink $MODIFIED_FILE;
+}
+
